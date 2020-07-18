@@ -15,6 +15,10 @@ app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 app.set('views', 'views')
 
+// add asset directory
+app.use(express.static(
+  path.join(__dirname, 'public')
+));
 
 app.get('/', (req, res) => {
   res.render('index');
