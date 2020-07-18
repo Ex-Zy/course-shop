@@ -1,15 +1,16 @@
 const express = require('express');
 const path = require('path');
+const exphbs = require('express-handlebars');
 
 const app = express();
 
-const exphbs = require('express-handlebars');
-
+// Create `ExpressHandlebars` instance with a default layout.
 const hbs = exphbs.create({
   defaultLayout: 'main',
   extname: 'hbs'
 });
 
+// Register `hbs.engine` with the Express app.
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 app.set('views', 'views')
